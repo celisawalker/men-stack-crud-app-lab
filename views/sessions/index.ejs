@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>All Sessions</title>
+</head>
+<body>
+    <h1>Community Sends!</h1>
+    <nav>
+        <ul>
+            <li>
+                <a href="/sessions/new">Add New Session</a>
+            </li>
+        </ul>
+    </nav>
+    <ul>
+        <% sessions.forEach(session => { %>
+            <a href="/sessions/<%= session._id %>">
+                <li><%= session.name %></li>
+            </a>
+       <% }); %>
+    </ul>
+</body>
+</html>
