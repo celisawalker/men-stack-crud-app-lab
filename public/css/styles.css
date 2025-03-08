@@ -1,0 +1,32 @@
+body{
+    background-color: rgb(250, 235, 216);
+    font-family: "Comic Neue";
+    text-align: center;
+}
+
+h1{
+    text-align: center;
+    color: rgb(106, 54, 5);
+    font-size: 32px;
+}
+
+a{
+   text-decoration: none;
+}
+
+li{
+    list-style: none;
+    font-size: 24px;
+    color: rgb(106, 54, 5);
+}
+
+hr{
+    height: 2px;
+    color: black;
+    /* border-style: solid;    */
+}
+
+a:hover{
+    color: rgb(154, 67, 5);
+    text-decoration: underline;
+}
