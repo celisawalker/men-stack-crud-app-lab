@@ -5,6 +5,7 @@
 const mongoose = require("mongoose");
 const sessionSchema = new mongoose.Schema({
     name: String,
+    gymName: String,
     boulderGrade: String,
     isSent: Boolean
 });

@@ -3,28 +3,26 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="css/styles.css">
+    <link rel="stylesheet" href="/css/styles.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Comic+Neue:ital,wght@0,300;0,400;0,700;1,300;1,400;1,700&family=Kiwi+Maru&display=swap" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Comic+Neue:ital,wght@0,300;0,400;0,700;1,300;1,400;1,700&family=Kiwi+Maru&display=swap" rel="stylesheet">
     <title>All Sessions</title>
 </head>
 <body>
-    <h1>Community Sends!</h1>
-    <nav>
+    <div class="community-intro">
+        <h1>Community Sends!</h1>
+        <p>Get inspriation from the sends of your fellow climbers and take a look at what they've been up to!</p>
+        <a href="/sessions/new">Add New Session</a>
+    </div>
+    <div class="session-display-container">
         <ul>
-            <li>
-                <a href="/sessions/new">Add New Session</a>
-            </li>
+            <% sessions.forEach(session => { %>
+                <a href="/sessions/<%= session._id %>">
+                    <li><%= session.name %></li>
+                </a>
+        <% }); %>
         </ul>
-    </nav>
-    <ul>
-        <% sessions.forEach(session => { %>
-            <a href="/sessions/<%= session._id %>">
-                <li><%= session.name %></li>
-            </a>
-            <hr>
-       <% }); %>
-    </ul>
+    </div>
 </body>
 </html>

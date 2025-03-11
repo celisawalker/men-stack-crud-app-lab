@@ -3,31 +3,28 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="css/styles.css">
+    <link rel="stylesheet" href="/css/styles.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Comic+Neue:ital,wght@0,300;0,400;0,700;1,300;1,400;1,700&family=Kiwi+Maru&display=swap" rel="stylesheet">
     <title>Session Show Page</title>
 </head>
 <body>
-    <nav>
-        <ul>
-            <li>
-                <a href="/sessions/">Back to Community Sends</a>
-            </li>
-        </ul>
-    </nav>
     <div class="session-display-container">
+        <a href="/sessions/">Back to Community Sends</a>
         <h1><%= session.name %></h1>
-        <h3><%=session.boulderGrade%></h3>
+        <h2><%=session.gymName%></h2>
+        <h2><%=session.boulderGrade%></h2>
         <% if (session.isSent){ %>
-            <p><%=session.name %> sent this boulder!</p>
+            <h3><%=session.name %> sent this boulder!</h3>
         <% } else { %>
-            <p><%= session.name %> is projecting this boulder!</p>
+            <h3><%= session.name %> is projecting this boulder!</h3>
             <% } %>
+        <a href="/sessions/<%= session._id %>/edit">Edit <%= session.name %></a>
     </div>
     <div class="action-buttons">
         <form action="/sessions/<%=session._id%>?_method=DELETE" method="POST">
             <button type="submit">Delete</button>
         </form>
-        <button type="submit">High Five!</button>
-        <a href="/sessions/<%= session._id %>/edit">Edit <%= session.name %></a>
     </div>
 </html>

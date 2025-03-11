@@ -73,6 +73,25 @@ app.get("/sessions/:sessionId", async (req, res) => {
     res.render("sessions/show.ejs", {session: foundSession});
 })
 
+app.get("/sessions/:sessionId/edit", async (req, res) => {
+    //look up session by ID
+    //respond with an edit template with an edit form
+
+     const foundSession = await Session.findById(req.params.sessionId);
+     res.render(`sessions/edit.ejs`, ({session: foundSession}));
+})
+
+app.put("/sessions/:sessionsId", async (req, res) => {
+    await Session.findByIdAndUpdate(req.params.sessionsId, req.body);
+
+    res.redirect(`/sessions/${req.params.sessionsId}`);
+})
+
+app.delete("/sessions/:sessionId", async (req, res) => {
+    await Session.findByIdAndDelete(req.params.sessionId);
+    res.redirect("/sessions");
+})
+
 app.listen(3000, () => {
     console.log("Listening on port 3000");
   });

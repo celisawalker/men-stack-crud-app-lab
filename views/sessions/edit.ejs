@@ -3,32 +3,29 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Edit Session</title>
     <link rel="stylesheet" href="/css/styles.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Comic+Neue:ital,wght@0,300;0,400;0,700;1,300;1,400;1,700&family=Kiwi+Maru&display=swap" rel="stylesheet">
-    <title>Add New Session</title>
 </head>
 <body>
-    <nav class="community-intro">
-        <ul>
-            <li>
-                <a href="/sessions">Community Sends</a>
-            </li>
-        </ul>
-        <h1>Add New Session</h1>
-            <p>Did you just have a climbing session that you just Need to brag about?
-                Log it below! Share your name, the grade that you attempted and whether or not you
-                sent (climber speak for completed) it! After you're done sharing your send, take a look
-                at what other climbers have sent for inspiration for your next session.
-            </p>
-    </nav>
+    <div class="community-intro">
+        <h1>Edit <%=session.name %>'s Session</h1>
+        <nav>
+            <ul>
+                <li>
+                    <a href="/sessions">Back to Home</a>
+                </li>
+            </ul>
+        </nav>
+    </div>
     <div class="edit-session-display-container">
         <form action="/sessions" method="post">
             <label for="name">Name: </label>
-            <input type="text" name="name" id="name">
+            <input type="text" name="name" id="name" value="<%=session.name%>">
             <label for="gymName">Gym Name: </label>
-            <input type="text" name="gymName" id="gymName">
+            <input type="text" name="gymName" id="gymName" value="<%=session.gymName%>">
             <label for="boulderGrade">Boulder Grade: </label>
             <select id="boulder-grade" name="boulderGrade">
                 <option value="vb">VB</option>
@@ -51,7 +48,7 @@
                 <option value="yes">Heck yeah!</option>
                 <option value="no">Not yet 💪</option>
             </select>
-            <button type="submit">Submit</button>
+            <button type="submit">Update</button>
         </form>
     </div>
 </body>
